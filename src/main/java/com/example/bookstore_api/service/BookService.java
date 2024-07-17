@@ -53,6 +53,11 @@ public class BookService {
         bookRepositery.deleteById(bookId);
         return "Book Successfully deleted";
     }
+
+    // raw query - get books
+    public List<Book> getBookByRawQuery(Set<Integer> yop){
+        return bookRepositery.findAllByYearOfPublicationIn(yop);
+    }
 }
 
 

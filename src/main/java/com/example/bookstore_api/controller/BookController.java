@@ -47,4 +47,9 @@ public class BookController {
     public String deleteById(@PathVariable("id") Integer bookId){
         return bookService.deleteById(bookId);
     }
+
+    @GetMapping("/raw")
+    public List<Book> getBooksByRawQuery(@RequestParam(value = "yop") Set<Integer> yop){
+        return bookService.getBookByRawQuery(yop);
+    }
 }

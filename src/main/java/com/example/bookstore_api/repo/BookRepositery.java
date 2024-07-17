@@ -1,7 +1,9 @@
 package com.example.bookstore_api.repo;
 
 import com.example.bookstore_api.entity.Book;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -12,6 +14,12 @@ public interface BookRepositery extends CrudRepository<Book, Integer> {
     // CRUD Operations with DB
 
     List<Book> findAllByYearOfPublicationInAndBookType(Set<Integer> yop, String bookType);
+
+    String rawQuery = "SELECT * FROM book WHERE year_of_publication IN (:yop)";
+//    String rawQuery = "SELECT * FROM book WHERE year_of_publication IN ?1";
+
+    @Query(nativeQuery = true, value = rawQuery)
+    List<Book> findAllByYearOfPublicationIn(@Param("yop") Set<Integer> yop);
 }
 
 // Need to use In at the end inorder to get Multiple params.
