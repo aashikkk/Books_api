@@ -17,13 +17,18 @@ public class BookService {
     private BookRepositery bookRepositery;
 
     //GET
-    public List<Book> getBooks(){
+    public List<Book> getBooks(Integer yop){
         List<Book> bookList = new ArrayList<>();
 
-        bookRepositery.findAll().forEach(
-                bookList::add
+        if (yop == null){
+            bookRepositery.findAll().forEach(
+                    bookList::add
 //                book -> bookList.add(book)
-        );
+            );
+        } else{
+            return bookRepositery.findAllByYearOfPublication(yop);
+        }
+
         return bookList;
     }
 

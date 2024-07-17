@@ -4,10 +4,13 @@ import com.example.bookstore_api.entity.Book;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface BookRepositery extends CrudRepository<Book, Integer> {
     // CRUD Operations with DB
 
+    List<Book> findAllByYearOfPublication(Integer yop);
 }
 
 
