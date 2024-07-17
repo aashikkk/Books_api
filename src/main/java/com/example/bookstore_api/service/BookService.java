@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class BookService {
@@ -17,7 +18,7 @@ public class BookService {
     private BookRepositery bookRepositery;
 
     //GET
-    public List<Book> getBooks(Integer yop){
+    public List<Book> getBooks(Set<Integer> yop){
         List<Book> bookList = new ArrayList<>();
 
         if (yop == null){
@@ -26,7 +27,7 @@ public class BookService {
 //                book -> bookList.add(book)
             );
         } else{
-            return bookRepositery.findAllByYearOfPublication(yop);
+            return bookRepositery.findAllByYearOfPublicationIn(yop);
         }
 
         return bookList;
