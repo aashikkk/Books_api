@@ -1,0 +1,13 @@
+CREATE TABLE `books`.`new_table` (
+  `id` INT NOT NULL,
+  `name` VARCHAR(50) NULL,
+  `description` VARCHAR(255) NULL,
+  `year_of_publication` INT NULL,
+  `book_type` VARCHAR(30) NULL,
+  PRIMARY KEY (`id`));
+
+
+INSERT INTO `books`.`book` (`id`, `name`, `description`, `year_of_publication`, `book_type`) VALUES ('1', 'States of 2', 'desc of states of 2', '2007', 'fiction');
+INSERT INTO `books`.`book` (`id`, `name`, `description`, `year_of_publication`, `book_type`) VALUES ('2', 'States of 3', 'desc of states of 3', '2017', 'adventure');
+INSERT INTO `books`.`book` (`id`, `name`, `description`, `year_of_publication`, `book_type`) VALUES ('3', 'States of 4', 'desc of states of 4', '2023', 'comedy');
+
