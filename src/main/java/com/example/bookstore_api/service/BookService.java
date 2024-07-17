@@ -18,7 +18,7 @@ public class BookService {
     private BookRepositery bookRepositery;
 
     //GET
-    public List<Book> getBooks(Set<Integer> yop){
+    public List<Book> getBooks(Set<Integer> yop, String bookType){
         List<Book> bookList = new ArrayList<>();
 
         if (yop == null){
@@ -27,7 +27,7 @@ public class BookService {
 //                book -> bookList.add(book)
             );
         } else{
-            return bookRepositery.findAllByYearOfPublicationIn(yop);
+            return bookRepositery.findAllByYearOfPublicationInAndBookType(yop, bookType);
         }
 
         return bookList;

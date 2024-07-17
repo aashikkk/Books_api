@@ -11,13 +11,15 @@ import java.util.Set;
 public interface BookRepositery extends CrudRepository<Book, Integer> {
     // CRUD Operations with DB
 
-    List<Book> findAllByYearOfPublicationIn(Set<Integer> yop);
+    List<Book> findAllByYearOfPublicationInAndBookType(Set<Integer> yop, String bookType);
 }
 
 // Need to use In at the end inorder to get Multiple params.
 // Ex:
 // SELECT * FROM Customers
 // WHERE Country IN ('Germany', 'France', 'UK');
+
+// If we add another query, AND will Add there with convention.
 
 // save to db
 // update

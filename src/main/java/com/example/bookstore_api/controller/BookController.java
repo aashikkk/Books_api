@@ -18,8 +18,10 @@ public class BookController {
 
     // GET
     @GetMapping
-    public List<Book> getBooks(@RequestParam(value = "yearOfPublications", required = false) Set<Integer> yop){
-        return bookService.getBooks(yop);
+    public List<Book> getBooks(
+            @RequestParam(value = "yearOfPublications", required = false) Set<Integer> yop,
+            @RequestParam(value = "bookType", required = false)String bookType){
+        return bookService.getBooks(yop, bookType);
     }
 
     // Create
